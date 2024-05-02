@@ -21,7 +21,7 @@ HAVING count(skill) = 3;
 --Ex 6:
 SELECT user_id, MAX(Date(post_date)) - MIN (Date(post_date))	AS days_between
 FROM posts
-WHERE post_date >= '2021/01/01' AND post_date <= '2021/12/31'
+WHERE post_date between '2020-12-31' AND '2022-01-01'
 GROUP BY user_id
 HAVING COUNT(post_id)>= 2 ;
 
