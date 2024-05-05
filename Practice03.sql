@@ -3,12 +3,12 @@
  Name
  from STUDENTS
  where Marks > 75
- order by RIGHT(Name,3),  ID;
+ order by RIGHT(Name,3), ID;
 
 --Ex2:
 select 
 user_id,
-upper(left(name,1)) || lower(right(name,length(name)-1) as name
+   upper(left(name,1)) || lower(right(name,length(name)-1) as name
 from Users
 order by user_id  
 --Cách 2:
