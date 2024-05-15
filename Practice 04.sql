@@ -18,11 +18,12 @@ FROM Triangle;
 
 -- Ex 3: 
 select 
-round(1.0*sum(
-  case 
-    when call_category is null or call_category = 'n/a' then 1 
-    else 0 
-    end)/count(*)*100,1) 
+round(cast(sum(
+          case 
+          when call_category is null or call_category = 'n/a' then 1 
+          else 0 
+          end)/count(*)*100 as decimal)
+  ,1)
        as call_percentage
 from callers; 
 
