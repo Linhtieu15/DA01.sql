@@ -17,3 +17,23 @@ end as triangle
 FROM Triangle;
 
 -- Ex 3: 
+select 
+round(1.0*sum(
+  case 
+    when call_category is null or call_category = 'n/a' then 1 
+    else 0 
+    end)/count(*)*100,1) 
+       as call_percentage
+from callers; 
+
+--Ex 4: 
+select name from Customer
+where referee_id !=2 or referee_id is NULL;
+
+-- Ex 5: 
+select survived, 
+     sum(case when pclass = 1 then 1 else 0 end) as first_class,
+     sum(case when pclass = 2 then 1 else 0 end) as second_class,
+     sum(case when pclass = 3 then 1 else 0 end) as third_class
+from titanic 
+group by survived; 
